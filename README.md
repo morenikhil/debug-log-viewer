@@ -6,6 +6,10 @@ A reusable Lightning Web Component that reads **ApexLog** records via the **Sale
 
 ---
 
+<img width="4300" height="3100" alt="Debug-Log-Viewer-Architecture" src="https://github.com/user-attachments/assets/efbf1176-c197-4469-a9d9-6226a28ea5b5" />
+
+---
+
 ## Features
 
 | Feature | Description |
