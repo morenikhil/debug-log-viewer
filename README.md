@@ -44,11 +44,11 @@ A reusable Lightning Web Component that reads **ApexLog** records via the **Sale
 │   │  │    debugLogDetail (child)    │   │   │
 │   │  └──────────────────────────────┘   │   │
 │   └─────────────────────────────────────┘   │
-│              │ @AuraEnabled                  │
+│              │ @AuraEnabled                 │
 │   ┌──────────▼──────────────────────────┐   │
 │   │   DebugLogViewerController (Apex)   │   │
 │   └──────────┬──────────────────────────┘   │
-│              │ Named Credential callout      │
+│              │ Named Credential callout     │
 │   ┌──────────▼──────────────────────────┐   │
 │   │    Salesforce Tooling API           │   │
 │   │  /tooling/query  (ApexLog list)     │   │
@@ -243,8 +243,3 @@ Target coverage: **≥ 85%** (all HTTP callout paths are exercised via `HttpCall
 - **Named Credential OAuth flow** — must be completed manually in each sandbox after deployment.
 - **Concurrency** — Tooling API has a limit of 10 concurrent requests per user session.
 
----
-
-## License
-
-MIT — free for use in internal Salesforce orgs and ISV packages.
