@@ -1,0 +1,55 @@
+<template>
+    <div class="slds-grid slds-gutters slds-wrap slds-m-bottom_small dlv-filter-bar">
+
+        <!-- User filter -->
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12">
+            <lightning-input
+                type="search"
+                label="User Id"
+                placeholder="005..."
+                value={userId}
+                onchange={handleUserIdChange}
+                class="dlv-filter-field">
+            </lightning-input>
+        </div>
+
+        <!-- Operation filter -->
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12">
+            <lightning-input
+                type="search"
+                label="Operation (keyword)"
+                placeholder="e.g. execute_anonymous"
+                value={operation}
+                onchange={handleOperationChange}
+                class="dlv-filter-field">
+            </lightning-input>
+        </div>
+
+        <!-- Status filter -->
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12">
+            <lightning-combobox
+                label="Status"
+                value={status}
+                placeholder="-- All --"
+                options={statusOptions}
+                onchange={handleStatusChange}
+                class="dlv-filter-field">
+            </lightning-combobox>
+        </div>
+
+        <!-- Apply / Clear buttons -->
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-12 slds-align-bottom">
+            <div class="slds-button-group slds-m-top_x-small">
+                <lightning-button
+                    label="Apply"
+                    variant="brand"
+                    onclick={handleApply}>
+                </lightning-button>
+                <lightning-button
+                    label="Clear"
+                    onclick={handleClear}>
+                </lightning-button>
+            </div>
+        </div>
+    </div>
+</template>

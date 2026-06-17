@@ -1,0 +1,108 @@
+<template>
+    <section role="dialog" tabindex="-1" aria-modal="true"
+             class="slds-modal slds-fade-in-open slds-modal_large">
+        <div class="slds-modal__container">
+
+            <!-- Header -->
+            <header class="slds-modal__header">
+                <lightning-button-icon
+                    class="slds-modal__close"
+                    icon-name="utility:close"
+                    alternative-text="Close"
+                    variant="bare-inverse"
+                    size="large"
+                    onclick={handleClose}>
+                </lightning-button-icon>
+                <h2 class="slds-modal__title slds-hyphenate">
+                    Debug Log — {logId}
+                </h2>
+            </header>
+
+            <!-- Body -->
+            <div class="slds-modal__content slds-p-around_medium">
+
+                <!-- Loading -->
+                <template if:true={isLoading}>
+                    <div class="slds-align_absolute-center slds-p-around_large">
+                        <lightning-spinner alternative-text="Loading log body..." size="medium"></lightning-spinner>
+                    </div>
+                </template>
+
+                <!-- Error -->
+                <template if:true={errorMessage}>
+                    <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
+                        <lightning-icon icon-name="utility:error" alternative-text="Error"
+                                        size="x-small" class="slds-m-right_x-small"></lightning-icon>
+                        <h2>{errorMessage}</h2>
+                    </div>
+                </template>
+
+                <!-- Content toolbar -->
+                <template if:true={hasBody}>
+                    <div class="slds-grid slds-grid_align-spread slds-m-bottom_small slds-wrap slds-gutters_x-small">
+
+                        <!-- Search within log -->
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_5-of-12">
+                            <lightning-input
+                                type="search"
+                                label="Search in log"
+                                placeholder="e.g. USER_DEBUG, SELECT, DML"
+                                variant="label-hidden"
+                                value={searchTerm}
+                                onchange={handleSearchChange}>
+                            </lightning-input>
+                        </div>
+
+                        <!-- Category filter -->
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12">
+                            <lightning-combobox
+                                label="Filter by category"
+                                variant="label-hidden"
+                                value={categoryFilter}
+                                options={categoryOptions}
+                                onchange={handleCategoryChange}>
+                            </lightning-combobox>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12 slds-align-bottom">
+                            <div class="slds-button-group">
+                                <lightning-button
+                                    label="Copy"
+                                    icon-name="utility:copy"
+                                    onclick={handleCopy}>
+                                </lightning-button>
+                                <lightning-button
+                                    label="Download"
+                                    icon-name="utility:download"
+                                    onclick={handleDownload}>
+                                </lightning-button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Match count -->
+                    <template if:true={isSearching}>
+                        <p class="slds-text-body_small slds-text-color_weak slds-m-bottom_x-small">
+                            {matchCount} line(s) matched
+                        </p>
+                    </template>
+
+                    <!-- Log output -->
+                    <div class="dlv-log-body-wrapper">
+                        <pre class="dlv-log-body" aria-label="Log body output">{filteredBody}</pre>
+                    </div>
+                </template>
+            </div>
+
+            <!-- Footer -->
+            <footer class="slds-modal__footer">
+                <lightning-button
+                    label="Close"
+                    onclick={handleClose}>
+                </lightning-button>
+            </footer>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>

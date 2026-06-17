@@ -1,0 +1,17 @@
+.dlv-log-body-wrapper {
+    background: #1b1b1b;
+    border-radius: 6px;
+    overflow: auto;
+    max-height: 60vh;
+    padding: 0.75rem;
+}
+
+.dlv-log-body {
+    color: #d4d4d4;
+    font-family: 'Cascadia Code', 'Consolas', 'Courier New', monospace;
+    font-size: 0.72rem;
+    line-height: 1.55;
+    white-space: pre;
+    margin: 0;
+    word-break: break-all;
+}

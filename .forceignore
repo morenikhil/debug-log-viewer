@@ -1,0 +1,7 @@
+# .forceignore — files excluded from SFDX source push/pull
+.forceignore
+**/node_modules/**
+**/.git/**
+**/jsconfig.json
+**/.eslintrc.json
+README.md

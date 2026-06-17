@@ -1,0 +1,41 @@
+/* Debug Log Viewer — main component styles */
+
+.dlv-log-table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.dlv-log-table th,
+.dlv-log-table td {
+    font-size: var(--lwc-fontSizeSmall, 0.75rem);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dlv-sortable-col {
+    cursor: pointer;
+}
+
+.dlv-sortable-col:hover .slds-th__action {
+    background-color: #e4e4e4;
+}
+
+.dlv-log-row {
+    cursor: pointer;
+    transition: background-color 0.1s;
+}
+
+.dlv-log-row:hover {
+    background-color: #f3f3f3;
+}
+
+.dlv-badge-success lightning-badge {
+    --slds-c-badge-color-background: #2e844a;
+    --slds-c-badge-text-color: #fff;
+}
+
+.dlv-badge-error lightning-badge {
+    --slds-c-badge-color-background: #ba0517;
+    --slds-c-badge-text-color: #fff;
+}

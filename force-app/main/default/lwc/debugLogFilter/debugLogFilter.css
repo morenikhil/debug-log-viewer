@@ -1,0 +1,9 @@
+.dlv-filter-bar {
+    background: var(--lwc-colorBackgroundAlt, #f3f3f3);
+    border-radius: 4px;
+    padding: 0.75rem;
+}
+
+.dlv-filter-field {
+    --slds-c-input-radius-border: 4px;
+}

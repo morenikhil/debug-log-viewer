@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Debug Log Viewer</label>
+    <description>Grants access to the Debug Log Viewer LWC and its Apex controller. Assign to sandbox administrators and developers only.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+
+    <classAccesses>
+        <apexClass>DebugLogViewerController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+</PermissionSet>
